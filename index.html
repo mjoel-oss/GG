@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔐 Анализатор паролей | Ultimate Password Checker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔐 Анализатор паролей</h1>
+            <p class="subtitle">Профессиональная проверка надежности пароля</p>
+        </header>
+
+        <div class="input-section">
+            <div class="input-group">
+                <input 
+                    type="password" 
+                    id="password" 
+                    placeholder="Введите пароль для проверки"
+                    autocomplete="off"
+                >
+                <button id="togglePassword" class="toggle-btn">👁️</button>
+            </div>
+            <button id="checkBtn" class="check-btn">🔍 Проверить пароль</button>
+        </div>
+
+        <div id="loading" class="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Выполняется комплексный анализ...</p>
+        </div>
+
+        <div id="result" class="result" style="display: none;">
+            <div class="rating-section">
+                <div id="rating" class="rating"></div>
+                <div class="score">
+                    <span id="score"></span>
+                    <span class="max-score">/100</span>
+                </div>
+            </div>
+
+            <div class="metrics">
+                <div class="metric">
+                    <span class="metric-label">📏 Длина</span>
+                    <span id="length" class="metric-value"></span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">🎲 Энтропия</span>
+                    <span id="entropy" class="metric-value"></span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">✅ Проверок</span>
+                    <span id="checks" class="metric-value"></span>
+                </div>
+            </div>
+
+            <div class="crack-times">
+                <h3>⏱️ Время взлома</h3>
+                <div id="crackTimes" class="crack-times-list"></div>
+            </div>
+
+            <div class="online-checks">
+                <h3>🌐 Онлайн-проверки</h3>
+                <div id="onlineChecks" class="checks-list"></div>
+            </div>
+
+            <div id="vulnerabilitiesSection" class="vulnerabilities" style="display: none;">
+                <h3>⚠️ Уязвимости</h3>
+                <ul id="vulnerabilities"></ul>
+            </div>
+
+            <div id="recommendationsSection" class="recommendations" style="display: none;">
+                <h3>💡 Рекомендации</h3>
+                <ul id="recommendations"></ul>
+            </div>
+        </div>
+
+        <footer>
+            <p>🔒 Ваши пароли не сохраняются и не отправляются на серверы</p>
+            <p>Создано с ❤️ для кибербезопасности</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
